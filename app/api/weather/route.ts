@@ -4,13 +4,14 @@ import { NextRequest, NextResponse } from "next/server";
 export async function GET(req: NextRequest) {
   try {
     const apikey = process.env.OPENWEATHERMAP_API_KEY;
-    const lat = 41.69547509615208;
-    const lon = 44.80144987367162;
+    const lat = 41.7151; // Central Tbilisi latitude
+    const lon = 44.8271; // Central Tbilisi longitude
     
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apikey}&units=metric`;
 
     const res = await axios.get(url);
 
+    console.log("API Response Data:", res.data);
 
     return NextResponse.json(res.data);
   } catch (error) {
