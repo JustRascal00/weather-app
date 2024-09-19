@@ -11,8 +11,6 @@ export async function GET(req: NextRequest) {
 
     const res = await axios.get(url);
 
-    console.log("API Response Data:", res.data);
-
     return NextResponse.json(res.data);
   } catch (error) {
     console.log("Error fetching forecast data", error);
